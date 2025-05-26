@@ -68,4 +68,35 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
 # DocumentMangerFrontend
+This is the frontend of the Document Management Portal built using **React.js**. It connects to the Django backend and provides a user-friendly interface for uploading, viewing, and querying documents using AI.
+
+## 🔑 Features
+
+- User registration & login
+- Upload and manage documents
+- Ask questions to AI based on document content
+- Responsive and clean UI
+
+## 🛠️ Technologies Used
+
+- React.js
+- Axios
+- Context API for Auth
+- JWT Authentication
+- React Router DOM
+
+## 🔧 Setup Instructions
+
+1. Clone the repository:
+   git clone https://github.com/your-username/document-manager-frontend.git
+   cd document-manager-frontend
+
+2. Install dependencies:
+   npm install
+
+3. Set backend API base URL inside `AuthProvider.jsx` or `axios` setup:
+```js
+axios.defaults.baseURL = 'https://documentmanagerbackend-2.onrender.com/';
