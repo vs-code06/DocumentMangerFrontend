@@ -1,0 +1,92 @@
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.button.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.button.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.button.secondary {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+}
+
+.button.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: var(--error-color);
+  background-color: #fdecea;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 15px 0;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.success-message {
+  color: var(--success-color);
+  background-color: #e8f5e9;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 15px 0;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .error-message,
+  .success-message {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .error-message,
+  .success-message {
+    font-size: 13px;
+    padding: 6px;
+  }
+}

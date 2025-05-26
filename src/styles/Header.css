@@ -1,0 +1,159 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap; 
+}
+
+.header h1 {
+  margin: 0;
+  color: #4a6bff;
+  font-size: 24px;
+  flex-grow: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0; 
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  color: #333;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-btn svg {
+  font-size: 24px;
+  color: #4a6bff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.dropdown-content button:hover {
+  background-color: #f5f5f5;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .header-left{
+    margin-left: 30px;
+    margin-top: 8px;
+  }
+
+  .header {
+    padding: 10px 15px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .header-right {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .icon-btn {
+    font-size: 16px;
+  }
+
+  .profile-btn {
+    font-size: 14px;
+  }
+
+  .profile-btn svg {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-left{
+    margin-left: 30px;
+  }
+
+
+  .header h1 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .icon-btn {
+    font-size: 14px;
+  }
+
+  .profile-btn {
+    font-size: 13px;
+  }
+
+  .profile-btn svg {
+    font-size: 18px;
+  }
+}

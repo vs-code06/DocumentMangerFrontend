@@ -1,0 +1,194 @@
+.document-list {
+  padding: 1rem 2rem;
+  background-color: #f9f9f9;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: #007bff;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.document-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.document-card:hover {
+  transform: translateY(-4px);
+}
+
+.document-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.document-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.file-type {
+  font-size: 0.85rem;
+  background-color: #eee;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #555;
+}
+
+.document-details {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.document-details p {
+  margin: 4px 0;
+}
+
+.document-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.action-btn.view {
+  color: #007bff;
+}
+
+.action-btn.update {
+  color: #17a2b8;
+}
+
+.action-btn.delete {
+  color: #dc3545;
+}
+
+.action-btn.ai {
+  color: #6f42c1;
+}
+
+.file-icon {
+  font-size: 1.8rem;
+}
+
+.file-icon.pdf {
+  color: #d32f2f;
+}
+
+.file-icon.word {
+  color: #1976d2;
+}
+
+.file-icon.excel {
+  color: #388e3c;
+}
+
+.file-icon.image {
+  color: #fbc02d;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .document-list {
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    max-width: 100%;
+    font-size: 0.95rem;
+    padding: 9px 12px;
+  }
+
+  .document-header h3 {
+    font-size: 1rem;
+  }
+
+  .file-type {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+
+  .document-details {
+    font-size: 0.85rem;
+  }
+
+  .action-btn {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  .file-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .documents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .document-card {
+    padding: 0.8rem;
+  }
+
+  .document-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .action-btn {
+    flex: 1 1 45%;
+    justify-content: center;
+  }
+}
