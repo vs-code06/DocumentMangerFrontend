@@ -1,6 +1,12 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+} from 'react';
 import axios from 'axios';
-import {jwtDecode} from 'jwt-decode'; 
+import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
@@ -13,6 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
+  // Set default Authorization header
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -21,12 +28,22 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
 
+  // ✅ Memoize logout to avoid dependency warning
+  const logout = useCallback(() => {
+    localStorage.removeItem('token');
+    setToken(null);
+    setUser(null);
+    navigate('/login');
+  }, [navigate]);
+
+  // Verify token on load or token change
   useEffect(() => {
     const verifyToken = async () => {
       try {
         if (token) {
           const decoded = jwtDecode(token);
           const currentTime = Date.now() / 1000;
+
           if (decoded.exp < currentTime) {
             // Token expired
             logout();
@@ -45,7 +62,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     verifyToken();
-  }, [token]);
+  }, [token, logout]); // ✅ logout included safely
 
   const login = async (email, password) => {
     try {
@@ -57,7 +74,6 @@ export const AuthProvider = ({ children }) => {
       const { access } = response.data;
       localStorage.setItem('token', access);
       setToken(access);
-
 
       const userResponse = await axios.get('/api/profile/');
       setUser(userResponse.data);
@@ -102,15 +118,9 @@ export const AuthProvider = ({ children }) => {
           errorMessage = data.toString();
         }
       }
+
       throw new Error(errorMessage);
     }
-  };
-
-  const logout = () => {
-    localStorage.removeItem('token');
-    setToken(null);
-    setUser(null);
-    navigate('/login');
   };
 
   return (
